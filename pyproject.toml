@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "apnoea_bradycardia_desaturation"
+version = "0.1.0"
+description = "Tools for ABD prediction and stratified apnoea-duration analysis."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Yiru Chen" }
+]
+
+dependencies = [
+    "numpy>=1.23",
+    "pandas>=1.5",
+    "scipy>=1.9",
+    "scikit-learn>=1.1",
+    "xgboost>=1.7",
+    "matplotlib>=3.6",
+    "statsmodels>=0.14",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=24.0",
+    "ruff>=0.4",
+    "pytest>=8.0",
+    "jupyter>=1.0",
+    "ipykernel>=6.0",
+]
+
+r = [
+    "rpy2>=3.5",
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+py-modules = ["sampling"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = [
+    "ABD_prediction*",
+    "stratified_analysis*",
+]
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+line-length = 88
